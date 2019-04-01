@@ -1,5 +1,6 @@
 package com.example.niccopark;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,21 +11,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
-import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
 
-public class MainActivity extends AppCompatActivity {
+import org.w3c.dom.Attr;
+
+public class HomeScreenActivity extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private SliderLayout sliderLayout;
+    public TextView attractionsBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
         dl = (DrawerLayout)findViewById(R.id.activity_home_drawer);
         sliderLayout = findViewById(R.id.imageSlider);
+        attractionsBtn = findViewById(R.id.attractions_btn);
 
         setSliderViews();
         initDrawer();
-
+        attractionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreenActivity.this,AttractionsActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -58,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 switch(id)
                 {
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "Home",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeScreenActivity.this, "Home",Toast.LENGTH_SHORT).show();
                     case R.id.settings:
-                        Toast.makeText(MainActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeScreenActivity.this, "Settings",Toast.LENGTH_SHORT).show();
 
                     default:
                         return true;
@@ -77,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i <= 3; i++) {
 
-            DefaultSliderView sliderView = new DefaultSliderView(MainActivity.this);
+            DefaultSliderView sliderView = new DefaultSliderView(HomeScreenActivity.this);
 
             switch (i) {
                 case 0:
@@ -99,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             sliderView.setOnSliderClickListener(new SliderView.OnSliderClickListener() {
                 @Override
                 public void onSliderClick(SliderView sliderView) {
-                    Toast.makeText(MainActivity.this, "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeScreenActivity.this, "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -114,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
 
         if(t.onOptionsItemSelected(item))
             return true;
+
+
+        if(item.getTitle().equals("Attractions")){
+            Intent intent = new Intent(HomeScreenActivity.this,AttractionsActivity.class);
+        }
 
         return super.onOptionsItemSelected(item);
     }

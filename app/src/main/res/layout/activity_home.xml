@@ -43,12 +43,8 @@
                     android:src="@drawable/browse_icon"
                     android:layout_gravity="center_horizontal"/>
 
-                <ImageView
-                    android:layout_marginTop="4dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/top_nav"
-                    android:layout_gravity="center_horizontal"/>
+                <include
+                    layout="@layout/menu_card_section"/>
 
                 <ImageView
                     android:layout_marginTop="2dp"
@@ -77,9 +73,6 @@
 
             </LinearLayout>
         </ScrollView>
-
-
-
 
         <Button
             android:id="@+id/buy_tickets_btn"
