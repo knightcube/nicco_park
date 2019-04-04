@@ -32,8 +32,8 @@
                 android:layout_height="wrap_content">
                 <com.smarteist.autoimageslider.SliderLayout
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:minHeight="200dp"
+                    android:layout_height="220dp"
+                    android:minHeight="180dp"
                     android:id="@+id/imageSlider"/>
 
                 <ImageView
@@ -58,14 +58,32 @@
                     android:orientation="vertical"
                     android:layout_height="250dp"
                     android:layout_gravity="bottom"
-                    android:background="@color/colorPrimary">
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:background="@color/colorPrimaryAlternate">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/alternate_section"
-                        android:background="@color/colorPrimary"/>
+                        android:src="@drawable/ic_email"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Stay in the know"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Get exclusive deals, offers and more"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textAlignment="center"
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
 
@@ -77,13 +95,13 @@
         <Button
             android:id="@+id/buy_tickets_btn"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="56dp"
             android:text="@string/buy_tickets"
             android:textSize="18sp"
-            android:textColor="@color/colorPrimaryText"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorAccentAlternate"/>
     </RelativeLayout>
 
 
