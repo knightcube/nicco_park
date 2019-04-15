@@ -3,7 +3,6 @@
     package="com.example.niccopark">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -20,16 +19,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.AttractionsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.niccopark.activity.HomeScreenActivity" />
-
         </activity>
 
-        <meta-data android:name="com.google.ar.core" android:value="optional" />
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="optional" />
 
+        <activity android:name=".activity.RidesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.niccopark.activity.HomeScreenActivity" />
+        </activity>
+        <activity android:name=".activity.RidesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.niccopark.activity.HomeScreenActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:title="Avengers"
+        app:title="Attractions"
         app:titleTextColor="@color/colorPrimaryText"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
