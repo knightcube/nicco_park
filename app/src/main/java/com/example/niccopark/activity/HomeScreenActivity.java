@@ -30,7 +30,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private NavigationView nv;
     private SliderLayout sliderLayout;
     public TextView attractionsBtn;
-    private TextView ridesBtn;
+    private Button ridesBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

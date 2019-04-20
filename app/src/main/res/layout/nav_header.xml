@@ -3,8 +3,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="192dp"
+    android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@drawable/nav_header">
+    android:background="@color/colorPrimary">
 
+    <ImageView
+        android:layout_marginTop="16dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/nicco_park_logo"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp"
+        android:text="John Doe"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="johndoe@example.com"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="14sp"/>
 </LinearLayout>

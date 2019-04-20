@@ -37,7 +37,7 @@
         <activity android:name=".activity.RidesDetailsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.niccopark.activity.HomeScreenActivity" />
+                android:value="com.example.niccopark.activity.RidesActivity" />
         </activity>
     </application>
 
