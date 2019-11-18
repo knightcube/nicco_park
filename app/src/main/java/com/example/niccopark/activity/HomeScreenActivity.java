@@ -31,6 +31,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private SliderLayout sliderLayout;
     public TextView attractionsBtn;
     private Button ridesBtn;
+    private Button buyTicketsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         sliderLayout = findViewById(R.id.imageSlider);
         attractionsBtn = findViewById(R.id.attractions_btn);
         ridesBtn = findViewById(R.id.rides_btn);
+        buyTicketsBtn = findViewById(R.id.buy_tickets_btn);
 
         setSliderViews();
         initDrawer();
@@ -56,6 +58,10 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         ridesBtn.setOnClickListener(v->{
             Intent intent = new Intent(HomeScreenActivity.this,RidesActivity.class);
+            startActivity(intent);
+        });
+        buyTicketsBtn.setOnClickListener(v->{
+            Intent intent = new Intent(HomeScreenActivity.this, PaymentsActivity.class);
             startActivity(intent);
         });
 
@@ -76,13 +82,13 @@ public class HomeScreenActivity extends AppCompatActivity {
                 {
                     case R.id.home:
                         Toast.makeText(HomeScreenActivity.this, "Home",Toast.LENGTH_SHORT).show();
-                    case R.id.attractions: {
-                        Toast.makeText(HomeScreenActivity.this, "Opening Attractions", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(HomeScreenActivity.this, AttractionsActivity.class);
+                    case R.id.events: {
+                        Toast.makeText(HomeScreenActivity.this, "Opening Events", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
                         startActivity(intent);
                     }
                     case R.id.rides: {
-                        Toast.makeText(HomeScreenActivity.this, "Opening Attractions", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeScreenActivity.this, "Opening Rides", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
                         startActivity(intent);
                     }
@@ -140,18 +146,23 @@ public class HomeScreenActivity extends AppCompatActivity {
             return true;
 
 
-        if(item.getItemId() == R.id.attractions){
-            Toast.makeText(this, "Attractions Selected", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(HomeScreenActivity.this,AttractionsActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        else if(item.getItemId() == R.id.rides){
-            Toast.makeText(this, "Rides Selected", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(HomeScreenActivity.this,RidesActivity.class);
-            startActivity(intent);
-            return true;
-        }
+//        if(item.getItemId() == R.id.events){
+//            Toast.makeText(this, "Events Selected", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(HomeScreenActivity.this,RidesActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }
+//        else if(item.getItemId() == R.id.rides){
+//            Toast.makeText(this, "Rides Selected", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(HomeScreenActivity.this,RidesActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }else if(item.getItemId() == R.id.home){
+//            Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(HomeScreenActivity.this,HomeScreenActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }
 
 
         return super.onOptionsItemSelected(item);

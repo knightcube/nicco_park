@@ -7,9 +7,9 @@
     <item android:id="@+id/rides"
         android:icon="@drawable/icon_roller_coaster"
         android:title="Rides"/>
-    <item android:id="@+id/attractions"
+    <item android:id="@+id/events"
         android:icon="@drawable/icon_attractions"
-        android:title="Attractions"/>
+        android:title="Events"/>
     <item android:id="@+id/park_timings"
         android:icon="@android:drawable/ic_menu_my_calendar"
         android:title="Park Timings"/>

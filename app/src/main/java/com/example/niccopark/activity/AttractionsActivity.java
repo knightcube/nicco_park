@@ -48,8 +48,8 @@ public class AttractionsActivity extends AppCompatActivity implements Scene.OnUp
         hulkBtn = findViewById(R.id.hulk_btn);
         fab = findViewById(R.id.floatingActionButton);
         ironmanBtn = findViewById(R.id.iron_man_btn);
-        hulkBtn.setOnClickListener(v -> modelUri = "jumping.sfb");
-        ironmanBtn.setOnClickListener(v -> modelUri = "aerial_evade.sfb");
+//        hulkBtn.setOnClickListener(v -> modelUri = "jumping.sfb");
+//        ironmanBtn.setOnClickListener(v -> modelUri = "aerial_evade.sfb");
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> createModel(hitResult.createAnchor(),modelUri));
 //        arFragment.getArSceneView().getScene().addOnUpdateListener(this);
 
