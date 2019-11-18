@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.FaqActivity"
+            android:label="@string/title_activity_faq"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activity.ContactUsActivity"
+            android:label="@string/title_activity_contact_us"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ParkTimingsActivity"
+            android:label="@string/title_activity_park_timings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activity.PaymentsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

@@ -94,6 +94,29 @@
                         android:textAlignment="center"
                         android:textSize="14sp"/>
 
+                    <Button
+                        android:id="@+id/subscribe_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:textColor="@color/colorPrimaryText"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:text="Subscribe">
+                        
+                    </Button>
+                    <TextView
+                        android:id="@+id/subscription_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryText"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:visibility="invisible"
+                        android:text="You are subscribed now">
+
+                    </TextView>
+
                 </LinearLayout>
 
 

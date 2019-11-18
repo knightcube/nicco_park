@@ -32,7 +32,9 @@ public class HomeScreenActivity extends AppCompatActivity {
     public TextView attractionsBtn;
     private Button ridesBtn;
     private Button buyTicketsBtn;
-
+    private Button eventsBtn;
+    private Button subscribeBtn;
+    private TextView subscriptionStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         attractionsBtn = findViewById(R.id.attractions_btn);
         ridesBtn = findViewById(R.id.rides_btn);
         buyTicketsBtn = findViewById(R.id.buy_tickets_btn);
+        eventsBtn = findViewById(R.id.events_btn);
+        subscribeBtn = findViewById(R.id.subscribe_btn);
+        subscriptionStatus = findViewById(R.id.subscription_status);
 
         setSliderViews();
         initDrawer();
@@ -63,6 +68,14 @@ public class HomeScreenActivity extends AppCompatActivity {
         buyTicketsBtn.setOnClickListener(v->{
             Intent intent = new Intent(HomeScreenActivity.this, PaymentsActivity.class);
             startActivity(intent);
+        });
+        eventsBtn.setOnClickListener(v->{
+            Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
+            startActivity(intent);
+        });
+        subscribeBtn.setOnClickListener(v->{
+            subscribeBtn.setVisibility(View.GONE);
+            subscriptionStatus.setVisibility(View.VISIBLE);
         });
 
     }
