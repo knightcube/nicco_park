@@ -3,17 +3,25 @@ package com.example.niccopark.fragment.tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.niccopark.R;
+import com.example.niccopark.adapter.RidesAdapter;
+
+import com.example.niccopark.dummydata.DummyData;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class KidsRidesFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     public KidsRidesFragment() {
         // Required empty public constructor
@@ -23,8 +31,22 @@ public class KidsRidesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kids_rides, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_kids_rides, container, false);
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.kids_rides_rv);
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        DummyData dummyData = new DummyData();
+        dummyData.setCategory(2);
+        mAdapter = new RidesAdapter(dummyData.getRidesList(),getContext(),2);
+        recyclerView.setAdapter(mAdapter);
+
+        return rootView;
     }
 
 }

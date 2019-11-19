@@ -15,15 +15,27 @@
         <activity
             android:name=".activity.FaqActivity"
             android:label="@string/title_activity_faq"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.niccopark.activity.HomeScreenActivity" />
+        </activity>
         <activity
             android:name=".activity.ContactUsActivity"
             android:label="@string/title_activity_contact_us"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.niccopark.activity.HomeScreenActivity" />
+        </activity>
         <activity
             android:name=".activity.ParkTimingsActivity"
             android:label="@string/title_activity_park_timings"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.niccopark.activity.HomeScreenActivity" />
+        </activity>
         <activity
             android:name=".activity.PaymentsActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -33,8 +33,8 @@ public class RidesActivity extends AppCompatActivity {
 
         adapter = new RidesTabAdapter(getSupportFragmentManager());
         adapter.addFragment(new FamilyRidesFragment(), "Family Rides");
-        adapter.addFragment(new FamilyRidesFragment(), "Kids Rides");
-        adapter.addFragment(new FamilyRidesFragment(), "Thrill Rides");
+        adapter.addFragment(new KidsRidesFragment(), "Kids Rides");
+        adapter.addFragment(new ThrillRidesFragment(), "Thrill Rides");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

@@ -105,6 +105,11 @@ public class HomeScreenActivity extends AppCompatActivity {
                         Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
                         startActivity(intent);
                     }
+                    case R.id.park_timings: {
+                        Toast.makeText(HomeScreenActivity.this, "Opening Park Timings", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(HomeScreenActivity.this, ParkTimingsActivity.class);
+                        startActivity(intent);
+                    }
                     default:
                         return true;
                 }

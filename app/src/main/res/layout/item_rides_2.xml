@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardView.Light"
+    android:id="@+id/ride_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
@@ -14,6 +15,7 @@
     <android.support.constraint.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ride_card"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -31,7 +33,7 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/primary_text"
+            android:id="@+id/ride_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -46,7 +48,7 @@
             app:layout_constraintBottom_toTopOf="@+id/sub_text" />
 
         <TextView
-            android:id="@+id/sub_text"
+            android:id="@+id/ride_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -56,13 +58,13 @@
             android:ellipsize="end"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/colorSecondaryTextDefaultMaterialLight"
-            app:layout_constraintTop_toBottomOf="@+id/primary_text"
+            app:layout_constraintTop_toBottomOf="@+id/ride_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/action_button_1" />
+            app:layout_constraintBottom_toTopOf="@+id/ride_share_btn" />
 
         <Button
-            android:id="@+id/action_button_1"
+            android:id="@+id/ride_share_btn"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +78,7 @@
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/more_btn"
-            app:layout_constraintTop_toBottomOf="@+id/sub_text" />
+            app:layout_constraintTop_toBottomOf="@+id/ride_description" />
 
         <Button
             android:id="@+id/more_btn"
@@ -92,7 +94,7 @@
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/action_button_1"
+            app:layout_constraintTop_toTopOf="@+id/ride_share_btn"
             app:layout_constraintVertical_bias="0.0" />
 
     </android.support.constraint.ConstraintLayout>

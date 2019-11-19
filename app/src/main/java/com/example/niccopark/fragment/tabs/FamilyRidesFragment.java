@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import com.example.niccopark.R;
 import com.example.niccopark.adapter.RidesAdapter;
 
+import com.example.niccopark.dummydata.DummyData;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -20,7 +22,6 @@ public class FamilyRidesFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-
 
     public FamilyRidesFragment() {
         // Required empty public constructor
@@ -33,13 +34,15 @@ public class FamilyRidesFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_family_rides, container, false);
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.rides_rv);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.family_rides_rv);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new RidesAdapter(getContext());
+        DummyData dummyData = new DummyData();
+        dummyData.setCategory(1);
+        mAdapter = new RidesAdapter(dummyData.getRidesList(),getContext(),1);
         recyclerView.setAdapter(mAdapter);
 
         return rootView;
