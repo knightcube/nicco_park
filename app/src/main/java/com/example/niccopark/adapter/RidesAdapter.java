@@ -57,10 +57,12 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.RidesViewHol
 
         ridesViewHolder.moreBtn.setOnClickListener(v->{
             Intent intent = new Intent(context,RidesDetailsActivity.class);
+            intent.putExtra("SELECTED_RIDE",currentRide);
             context.startActivity(intent);
         });
         ridesViewHolder.rideCard.setOnClickListener(v->{
             Intent intent = new Intent(context,RidesDetailsActivity.class);
+            intent.putExtra("SELECTED_RIDE",currentRide);
             context.startActivity(intent);
         });
 

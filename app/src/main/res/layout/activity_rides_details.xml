@@ -18,8 +18,9 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/rides_details_images"
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:minHeight="200dp"
@@ -31,7 +32,7 @@
         app:srcCompat="@drawable/toy_train" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/rides_details_title_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,10 +41,10 @@
         android:textSize="32sp"
         android:textColor="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/rides_details_images" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/rides_details_desc_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -55,10 +56,10 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/rides_details_title_txt" />
 
     <TextView
-        android:id="@+id/imageView3"
+        android:id="@+id/show_map_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -74,7 +75,7 @@
         android:src="@drawable/browse_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/rides_details_desc_txt" />
 
     <Button
         android:layout_width="wrap_content"
@@ -92,6 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/show_map_txt" />
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>

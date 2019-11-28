@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Indicates that app requires ARCore ("AR Required"). Ensures the app is
+     visible only in the Google Play Store on devices that support ARCore.
+     For "AR Optional" apps remove this line. -->
+    <uses-feature android:name="android.hardware.camera.ar" />
+    <!-- Sceneform requires OpenGL ES 3.0 or later. -->
+    <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -68,8 +75,10 @@
         <activity android:name=".activity.RidesDetailsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.niccopark.activity.RidesActivity" />
+                android:value="com.example.niccopark.activity.HomeScreenActivity" />
         </activity>
+
+
     </application>
 
 </manifest>

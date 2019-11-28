@@ -1,6 +1,8 @@
 package com.example.niccopark.model;
 
-public class Rides {
+import java.io.Serializable;
+
+public class Rides implements Serializable {
 
     private String title;
     private String description;

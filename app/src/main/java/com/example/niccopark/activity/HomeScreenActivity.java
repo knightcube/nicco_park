@@ -2,6 +2,7 @@ package com.example.niccopark.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +35,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private Button buyTicketsBtn;
     private Button eventsBtn;
     private Button subscribeBtn;
+    private TextView locationBtn;
     private TextView subscriptionStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         eventsBtn = findViewById(R.id.events_btn);
         subscribeBtn = findViewById(R.id.subscribe_btn);
         subscriptionStatus = findViewById(R.id.subscription_status);
+        locationBtn = findViewById(R.id.home_show_on_map_txt);
 
         setSliderViews();
         initDrawer();
@@ -70,12 +73,18 @@ public class HomeScreenActivity extends AppCompatActivity {
             startActivity(intent);
         });
         eventsBtn.setOnClickListener(v->{
-            Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
-            startActivity(intent);
+            Toast.makeText(this, "Feature Coming Soon", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
+//            startActivity(intent);
         });
         subscribeBtn.setOnClickListener(v->{
             subscribeBtn.setVisibility(View.GONE);
             subscriptionStatus.setVisibility(View.VISIBLE);
+        });
+        locationBtn.setOnClickListener(v->{
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                    Uri.parse("google.navigation:q=Salt Lake Bypass Jheel Meel, Sector IV, Bidhannagar, Kolkata, West Bengal 700106"));
+            startActivity(intent);
         });
 
     }
@@ -96,24 +105,26 @@ public class HomeScreenActivity extends AppCompatActivity {
                     case R.id.home:
                         Toast.makeText(HomeScreenActivity.this, "Home",Toast.LENGTH_SHORT).show();
                     case R.id.events: {
-                        Toast.makeText(HomeScreenActivity.this, "Opening Events", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
-                        startActivity(intent);
+                        Toast.makeText(HomeScreenActivity.this, "Feature coming soon", Toast.LENGTH_SHORT).show();
+                        break;
                     }
                     case R.id.rides: {
                         Toast.makeText(HomeScreenActivity.this, "Opening Rides", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(HomeScreenActivity.this, RidesActivity.class);
                         startActivity(intent);
+                        break;
                     }
                     case R.id.park_timings: {
                         Toast.makeText(HomeScreenActivity.this, "Opening Park Timings", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(HomeScreenActivity.this, ParkTimingsActivity.class);
                         startActivity(intent);
+                        break;
                     }
-                    default:
+                    default: {
                         return true;
+                    }
                 }
-
+                return true;
             }
         });
     }
@@ -178,6 +189,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 //        }else if(item.getItemId() == R.id.home){
 //            Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show();
 //            Intent intent = new Intent(HomeScreenActivity.this,HomeScreenActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }else if(item.getItemId() == R.id.park_timings){
+//            Toast.makeText(this, "Park Timings Selected", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(HomeScreenActivity.this,ParkTimingsActivity.class);
 //            startActivity(intent);
 //            return true;
 //        }

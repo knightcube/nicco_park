@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,8 +22,10 @@ import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.SkeletonNode;
 import com.google.ar.sceneform.animation.ModelAnimator;
+import com.google.ar.sceneform.assets.RenderableSource;
 import com.google.ar.sceneform.rendering.AnimationData;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.Renderable;
 import com.google.ar.sceneform.ux.TransformableNode;
 
 public class AttractionsActivity extends AppCompatActivity implements Scene.OnUpdateListener {
@@ -34,6 +37,8 @@ public class AttractionsActivity extends AppCompatActivity implements Scene.OnUp
     private FloatingActionButton fab;
     private ModelAnimator modelAnimator;
     private int i;
+    private ModelRenderable duckRenderable;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +54,7 @@ public class AttractionsActivity extends AppCompatActivity implements Scene.OnUp
         fab = findViewById(R.id.floatingActionButton);
         ironmanBtn = findViewById(R.id.iron_man_btn);
 //        hulkBtn.setOnClickListener(v -> modelUri = "jumping.sfb");
-//        ironmanBtn.setOnClickListener(v -> modelUri = "aerial_evade.sfb");
+//        ironmanBtn.setOnClickListener(v -> modelUri = "iron_man.sfb");
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> createModel(hitResult.createAnchor(),modelUri));
 //        arFragment.getArSceneView().getScene().addOnUpdateListener(this);
 
@@ -57,17 +62,51 @@ public class AttractionsActivity extends AppCompatActivity implements Scene.OnUp
     }
 
     private void createModel(Anchor anchor, String s) {
+
+        String GLTF_ASSET =
+                "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF/Duck.gltf";
+
+        /* When you build a Renderable, Sceneform loads model and related resources
+         * in the background while returning a CompletableFuture.
+         * Call thenAccept(), handle(), or check isDone() before calling get().
+         */
         ModelRenderable.builder()
-                .setSource(this, Uri.parse(s))
+                .setSource(this, RenderableSource.builder().setSource(
+                        this,
+                        Uri.parse(GLTF_ASSET),
+                        RenderableSource.SourceType.GLTF2)
+                        .setScale(0.5f)  // Scale the original model to 50%.
+                        .setRecenterMode(RenderableSource.RecenterMode.ROOT)
+                        .build())
+                .setRegistryId(GLTF_ASSET)
                 .build()
-                .thenAccept(modelRenderable ->{
-                    placeModel(modelRenderable, anchor);
+                .thenAccept(renderable -> {
+                    duckRenderable = renderable;
+                    placeModel(duckRenderable,anchor);
                 })
                 .exceptionally(
                         throwable -> {
-                            Log.e(TAG, "Unable to load Renderable.", throwable);
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load renderable " +
+                                            GLTF_ASSET, Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
                             return null;
-                        })
+                        });
+
+
+
+//        ModelRenderable.builder()
+//                .setSource(this, Uri.parse(s))
+//                .build()
+//                .thenAccept(modelRenderable ->{
+//                    placeModel(modelRenderable, anchor);
+//                })
+//                .exceptionally(
+//                        throwable -> {
+//                            Log.e(TAG, "Unable to load Renderable.", throwable);
+//                            return null;
+//                        })
         ;
     }
 
@@ -152,7 +191,7 @@ public class AttractionsActivity extends AppCompatActivity implements Scene.OnUp
 //        anchorNode.setRenderable(modelRenderable);
         arFragment.getArSceneView().getScene().addChild(anchorNode);
         fab.setOnClickListener(v -> {
-            animateModel(modelRenderable);
+//            animateModel(modelRenderable);
         });
     }
 
